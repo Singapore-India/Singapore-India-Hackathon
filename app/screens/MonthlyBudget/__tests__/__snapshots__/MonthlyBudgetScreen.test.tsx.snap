@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthlyBudgetScreen renders correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#FFFFFF",
+      "flex": 1,
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "paddingTop": 26,
+          }
+        }
+      >
+        <Text.Primary
+          bold={true}
+        >
+          Slide to set your budget
+        </Text.Primary>
+      </View>
+      <RNCSlider
+        disabled={false}
+        inverted={false}
+        lowerLimit={-9007199254740991}
+        maximumTrackTintColor="#F9F9F9"
+        maximumValue={1000}
+        minimumTrackTintColor="#0F853B"
+        minimumValue={10}
+        onChange={null}
+        onRNCSliderAccessibilityAction={null}
+        onRNCSliderSlidingComplete={[Function]}
+        onRNCSliderSlidingStart={null}
+        onRNCSliderValueChange={null}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        step={0}
+        style={
+          [
+            {
+              "marginTop": 14,
+            },
+            {
+              "height": 40,
+            },
+          ]
+        }
+        tapToSeek={false}
+        thumbTintColor="#0F853B"
+        upperLimit={9007199254740991}
+        value={0}
+      />
+      <Text.Primary
+        lightGray={true}
+      >
+        <FormattedNumber
+          value={NaN}
+        />
+         
+        lb
+        CO2eq
+      </Text.Primary>
+      <View
+        style={
+          {
+            "flex": 1,
+            "marginVertical": 20,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flex": 1,
+              "marginBottom": 16,
+            }
+          }
+        >
+          <Text.Primary
+            bold={true}
+          >
+            Average monthly emissions per capita in a sample of countries 
+            <Ionicons
+              color="#3957D0"
+              name="md-information-circle"
+              onPress={[Function]}
+              size={26}
+            />
+          </Text.Primary>
+        </View>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          Luxembourg : 
+          <FormattedNumber
+            value={7718}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          United States : 
+          <FormattedNumber
+            value={3308}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          Japan : 
+          <FormattedNumber
+            value={1985}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          Sweden : 
+          <FormattedNumber
+            value={1312}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          France : 
+          <FormattedNumber
+            value={1268}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          China : 
+          <FormattedNumber
+            value={1151}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          Brazil : 
+          <FormattedNumber
+            value={459}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          India : 
+          <FormattedNumber
+            value={306}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <Text.Secondary
+          center={true}
+          style={
+            {
+              "marginBottom": 6,
+            }
+          }
+        >
+          Ethiopia : 
+          <FormattedNumber
+            value={18}
+          />
+           
+          lb
+          CO2eq
+        </Text.Secondary>
+        <View
+          style={
+            {
+              "marginBottom": 80,
+              "marginTop": 16,
+            }
+          }
+        >
+          <Text.Secondary
+            center={true}
+          >
+            If you wish to respect the Paris agreement (to keep the rise in global average temperature below 2 degrees), set your monthly budget at
+             
+            368
+             
+            lbCO2eq
+            <Ionicons
+              color="#3957D0"
+              name="md-information-circle"
+              onPress={[Function]}
+              size={26}
+            />
+          </Text.Secondary>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      {
+        "bottom": 20,
+        "left": 16,
+        "position": "absolute",
+        "right": 16,
+      }
+    }
+  >
+    <Button.Secondary
+      fullWidth={true}
+      icon="save"
+      onPress={[Function]}
+      text="Save"
+    />
+  </View>
+</View>
+`;

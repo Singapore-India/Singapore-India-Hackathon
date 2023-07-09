@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RecurringEmissionsScreen /> render 1`] = `
+<RCTScrollView
+  ListHeaderComponent={
+    <View
+      style={
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderBottomColor": "#E7F3EB",
+          "borderBottomWidth": 2,
+          "elevation": 0,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingHorizontal": 16,
+          "paddingVertical": 16,
+          "shadowColor": "transparent",
+          "shadowOffset": {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <Text.Primary
+        bold={true}
+        darkGray={true}
+      >
+        NaN kgCO2eq
+      </Text.Primary>
+    </View>
+  }
+  data={200}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={[]}
+  style={
+    {
+      "backgroundColor": "#FFFFFF",
+    }
+  }
+  viewabilityConfigCallbackPairs={[]}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#FFFFFF",
+            "borderBottomColor": "#E7F3EB",
+            "borderBottomWidth": 2,
+            "elevation": 0,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 16,
+            "paddingVertical": 16,
+            "shadowColor": "transparent",
+            "shadowOffset": {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <Text.Primary
+          bold={true}
+          darkGray={true}
+        >
+          NaN kgCO2eq
+        </Text.Primary>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

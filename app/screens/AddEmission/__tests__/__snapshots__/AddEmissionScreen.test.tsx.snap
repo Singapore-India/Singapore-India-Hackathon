@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddEmissionScreen renders correctly 1`] = `
+<GlobalizeProvider
+  locale="en"
+>
+  <KeyboardAwareScrollView
+    style={
+      {
+        "alignContent": "flex-start",
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#FFFFFF",
+          "flex": 1,
+          "paddingHorizontal": 16,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Text.H2
+        style={
+          {
+            "marginTop": 4,
+            "textTransform": "capitalize",
+          }
+        }
+      />
+      <Text.Primary
+        lightGray={true}
+        style={
+          {
+            "marginTop": 4,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        Custom
+      </Text.Primary>
+    </View>
+    <TextInput
+      isOptional={true}
+      onChangeText={[Function]}
+      placeholder="e.g burger, flight from Paris to Rome…"
+      title="Name this emission "
+      value=""
+    />
+    <Modal
+      animationType="none"
+      hardwareAccelerated={false}
+      isVisible={false}
+      onHide={[Function]}
+      transparent={true}
+      visible={false}
+    />
+    <View
+      style={
+        {
+          "backgroundColor": "#FFFFFF",
+          "flex": 1,
+          "paddingHorizontal": 16,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Text.H3>
+        Date
+      </Text.H3>
+      <View
+        style={
+          {
+            "flexDirection": "column",
+            "paddingBottom": 4,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <TextButton
+          iconLeft="calendar"
+          onPress={[Function]}
+          text="Sunday 7th April 2019"
+        />
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#FFFFFF",
+          "flex": 1,
+          "paddingHorizontal": 16,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Text.H3>
+        Periodicity
+      </Text.H3>
+      <View
+        style={
+          {
+            "flexDirection": "column",
+            "paddingBottom": 4,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <TextButton
+          iconLeft="repeat"
+          onPress={[Function]}
+          text="Non-recurring"
+        />
+      </View>
+    </View>
+    <Button.Primary
+      onPress={[Function]}
+      style={
+        {
+          "margin": 16,
+        }
+      }
+      text="Add this emission"
+    />
+  </KeyboardAwareScrollView>
+</GlobalizeProvider>
+`;
