@@ -1,5 +1,7 @@
-import React from "react";
-import { ScrollView } from "react-native";
+import { Pedometer } from "expo-sensors";
+
+import React ,{useState,useEffect}from "react";
+import { ScrollView ,Text} from "react-native";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
@@ -8,14 +10,21 @@ import { t } from "utils";
 import { navigate } from "navigation";
 import { NavStatelessComponent } from "interfaces";
 
+
 import styles from "./BudgetScreen.styles";
 import { NumberOfDaysVegetarian, ProgressChart } from "./components";
 import { selectors } from "./ducks";
 import navigationOptions from "./BudgetScreen.navigationOptions";
 
+
+
+
+
 const BudgetScreen: NavStatelessComponent = () => {
+
   const navigation = useNavigation();
   const navigator = navigate(navigation);
+
 
   const monthlyCarbonBudget = useSelector(selectors.getMonthlyCarbonBudget);
 
@@ -48,9 +57,77 @@ const BudgetScreen: NavStatelessComponent = () => {
   );
   const customCurrentYearEmissions = useSelector(selectors.getCurrentYearCustomCarbonValue);
   const totalCurrentYearEmissions = useSelector(selectors.getCurrentYearAllCarbonValue);
+  const [isPedometerAvailable, setIsPedometerAvailable] = useState("");
+
+  // React.useEffect(() => {
+
+  //   subscribe();
+  //   console.log("StepCount",StepCount);
+ 
+  // }, []);
+ 
+  
+ 
+  //  const subscribe = () => {
+ 
+  //   const subscription = Pedometer.watchStepCount((result) => {
+ 
+  //     SetStepCount(result.steps);
+ 
+  //   });
+
+  //   Pedometer.isAvailableAsync().then(
+
+  //     (result) => {
+ 
+  //       setIsPedometerAvailable(String(result));
+ 
+  //     },
+ 
+  //     (error) => {
+ 
+  //       setIsPedometerAvailable(error);
+ 
+  //     }
+ 
+  //   );
+
+  // }
+
+
+  const [stepCount, setStepCount] = useState(0);
+
+  useEffect(() => {
+    let subscription;
+
+    const startStepCounting = async () => {
+      const isAvailable = await Pedometer.isAvailableAsync();
+      if (isAvailable) {
+        subscription = Pedometer.watchStepCount((result) => {
+          setStepCount(result.steps);
+        });
+      }
+    };
+
+    startStepCounting();
+    // Clean up the subscription on unmount
+    return () => {
+      if (subscription) {
+        subscription.remove();
+      }
+    };
+  }, []);
+ 
+
+  
 
   return (
     <ScrollView style={styles.container}>
+      
+      <Text style={{ fontSize: 20, color: "red", textAlign: "center" }}>
+      {isPedometerAvailable}
+    </Text>
+    <Text style={{ fontSize: 20, color: "red", textAlign: "center" }}>{stepCount}</Text>
       <ProgressChart
         isMonth
         totalEmissions={totalCurrentMonthEmissions}
