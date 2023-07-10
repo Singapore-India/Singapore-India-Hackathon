@@ -36,6 +36,7 @@ module.exports = () => {
       icon: "./assets/images/android.icon.png",
       package: "nmf.earth",
       versionCode: buildNumber,
+      "permissions": ["PEDOMETER"]
     },
     hooks: {
       postPublish: [
