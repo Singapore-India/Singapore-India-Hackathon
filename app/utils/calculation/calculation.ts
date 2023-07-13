@@ -150,7 +150,7 @@ const getImperialMetricValue = (
       return metricValue * 2.205;
     } else if (measureType === MeasureType.length) {
       /* km -> miles
-      note: deviates from NMF.earth's standard of using meters as a reference */
+      note: deviates from Carboom.'s standard of using meters as a reference */
       return metricValue / 1.609;
     }
   }

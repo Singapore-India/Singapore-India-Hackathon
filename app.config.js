@@ -5,7 +5,7 @@ const buildNumber = 50;
 
 module.exports = () => {
   return {
-    name: "NMF.earth",
+    name: "Carboom.",
     plugins: ["sentry-expo"],
     slug: "not-my-fault-earth",
     privacy: "public",
@@ -28,13 +28,13 @@ module.exports = () => {
     },
     ios: {
       icon: "./assets/images/ios.icon.png",
-      bundleIdentifier: "nmf.earth",
+      bundleIdentifier: "Carboom.",
       supportsTablet: true,
       buildNumber: buildNumber.toString(),
     },
     android: {
       icon: "./assets/images/android.icon.png",
-      package: "nmf.earth",
+      package: "Carboom.",
       versionCode: buildNumber,
       "permissions": ["PEDOMETER"]
     },

@@ -49,7 +49,7 @@ exports[`SettingsScreen renders correctly 1`] = `
     <ListItem
       onPress={[Function]}
       showBottomLine={true}
-      title="NMF.earth"
+      title="Carboom."
     />
     <ListItem
       onPress={[Function]}
