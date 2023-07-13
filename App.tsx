@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { View ,ActivityIndicator} from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import * as Font from "expo-font";
@@ -19,6 +19,25 @@ import StoreReviewChecker from "components/StoreReviewChecker";
 import { loadGlobalize } from "./i18";
 import AppNavigator from "./app/navigation/Navigator/AppNavigator";
 import store from "./app/redux/store";
+import { AuthContext } from "./components/context";
+import { 
+  NavigationContainer, 
+  DefaultTheme as NavigationDefaultTheme,
+  DarkTheme as NavigationDarkTheme
+} from '@react-navigation/native';
+import { 
+  Provider as PaperProvider, 
+  DefaultTheme as PaperDefaultTheme,
+} from 'react-native-paper';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerContent } from './screens/DrawerContent';
+
+import MainTabScreen from './screens/MainTabScreen';
+import SupportScreen from './screens/SupportScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import BookmarkScreen from './screens/BookmarkScreen';
+import RootStackScreen from './screens/RootStackScreen';
+
 
 const supportedLanguages: string[] = [
   "en",
@@ -53,6 +72,9 @@ if (!__DEV__) {
   });
 }
 
+const Drawer = createDrawerNavigator();
+
+
 const App: React.FC = () => {
   enableScreens();
 
@@ -66,6 +88,60 @@ const App: React.FC = () => {
   const [language, setLanguage] = useState(lang);
 
   const [locale, setLocale] = useState(localeExpo);
+
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [userToken, setUserToken] = React.useState(null); 
+
+  const authContext = React.useMemo(() => ({
+    signIn: async(foundUser) => {
+      setUserToken('fgkj');
+      setIsLoading(false);
+      // const userToken = String(foundUser[0].userToken);
+      // const userName = foundUser[0].username;
+      
+      try {
+        // await AsyncStorage.setItem('userToken', userToken);
+      } catch(e) {
+        console.log(e);
+      }
+      // console.log('user token: ', userToken);
+      // dispatch({ type: 'LOGIN', id: userName, token: userToken });
+    },
+    signOut: async() => {
+      setUserToken(null);
+      setIsLoading(false);
+      try {
+        // await AsyncStorage.removeItem('userToken');
+      } catch(e) {
+        console.log(e);
+      }
+      // dispatch({ type: 'LOGOUT' });
+    },
+    signUp: () => {
+      setUserToken('fgkj');
+      setIsLoading(false);
+    },
+    // toggleTheme: () => {
+    //   setIsDarkTheme( isDarkTheme => !isDarkTheme );
+    // }
+  }), []);
+
+  useEffect(() => {
+    setTimeout(async() => {
+      setIsLoading(false);
+      // let userToken;
+      // userToken = null;
+      try {
+        // userToken = await AsyncStorage.getItem('userToken');
+      } catch(e) {
+        console.log(e);
+      }
+      // console.log('user token: ', userToken);
+      // dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
+    }, 1000);
+  }, []);
+
+
 
   useEffect(() => {
     Promise.all([
@@ -88,9 +164,25 @@ const App: React.FC = () => {
       });
   }, []);
 
+
+
+
   let body = <View />;
 
+  // if( isLoading ) {
+  //   return(
+  //     <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+  //       <ActivityIndicator size="large"/>
+  //     </View>
+  //   );
+  // }
+ 
+
   if (ready) {
+    if(userToken === null){
+      body= <RootStackScreen />
+    }
+    else{
     body = (
       <Provider store={store}>
         <GlobalizeProvider locale={language || defaultLanguage}>
@@ -113,13 +205,37 @@ const App: React.FC = () => {
         </GlobalizeProvider>
       </Provider>
     );
+            }
   }
 
   return (
+    <PaperProvider >
+    <AuthContext.Provider value={authContext}>
+      {/* <NavigationContainer > */}
     <SafeAreaProvider>
       <StatusBar style="dark" />
-      {body}
+      {/* { userToken !== null ? (
+        <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+          <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+          <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+          <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+          <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
+        </Drawer.Navigator>
+      )
+    :
+      <RootStackScreen />
+    } */}
+    {body}
+       
+        
+
+        {/* { userToken === null && body} */}
+
+   
     </SafeAreaProvider>
+    {/* </NavigationContainer> */}
+    </AuthContext.Provider>
+    </PaperProvider>
   );
 };
 
