@@ -319,7 +319,7 @@ exports[`renders correctly Link 1`] = `
         undefined,
       ]
     }
-    url="http://nmf.earth"
+    url="http://www.google.com"
   >
     test
   </Text>

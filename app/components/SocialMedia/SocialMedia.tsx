@@ -8,18 +8,7 @@ import { Colors } from "style";
 import styles from "./SocialMedia.styles";
 
 const socialMedia = [
-  {
-    iconName: "github",
-    url: "https://github.com/NMF-earth",
-  },
-  {
-    iconName: "mastodon",
-    url: "https://mastodon.social/@nmf_earth",
-  },
-  {
-    iconName: "medium-m",
-    url: "https://medium.com/@nmf_earth",
-  },
+ 
 ];
 
 const SocialMedia: React.FC = () => (

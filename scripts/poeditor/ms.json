@@ -94,7 +94,7 @@
 	"EMISSION_ITEM_SCREEN_IS_NOT_MITIGATED": "Emisi ini belum dikurangi",
 	"EMISSION_ITEM_SCREEN_TITLE": "Emisi",
 	"EMISSION_ITEM_SCREEN_DELETE_EMISSION": "Hapus emisi",
-	"INTRO_SCREEN_WELCOME": "Selamat datang di NMF.earth",
+	"INTRO_SCREEN_WELCOME": "Selamat datang di Carboom.",
 	"INTRO_SCREEN_CONTINUE_AND_ACCEPT_TERMS_OF_USE": "Dengan melanjutkan, Anda menyetujui persyaratan penggunaan kami.",
 	"INTRO_SCREEN_TERMS_OF_USE": "Baca ketentuan penggunaan",
 	"INTRO_SCREEN_I_AGREE": "saya setuju",
@@ -112,7 +112,7 @@
 	"ABOUT_SCREEN_GITHUB": "Github",
 	"SUPPORT_US_SCREEN_TITLE": "Dukung kami!",
 	"SUPPORT_US_SCREEN_WHY_DONATE_TITLE": "Mengapa Anda harus mempertimbangkan untuk mendukung kami",
-	"SUPPORT_US_SCREEN_WHY_DONATE_CONTENT": "NMF.earth tidak mencari keuntungan, kami hanya mengumpulkan sedikit dana di Kickstarter dan kami terus bekerja keras dalam proyek ini meskipun tidak berkelanjutan secara finansial. Selain itu, kami memiliki banyak biaya seperti server, nama domain, lisensi perangkat lunak, akun pengembang apel, dll.",
+	"SUPPORT_US_SCREEN_WHY_DONATE_CONTENT": "Carboom. tidak mencari keuntungan, kami hanya mengumpulkan sedikit dana di Kickstarter dan kami terus bekerja keras dalam proyek ini meskipun tidak berkelanjutan secara finansial. Selain itu, kami memiliki banyak biaya seperti server, nama domain, lisensi perangkat lunak, akun pengembang apel, dll.",
 	"SUPPORT_US_SCREEN_TITLE_CONSIDER_DONATE": "Jika Anda menyukai proyek ini, harap pertimbangkan untuk menyumbangkan sejumlah kecil untuk membantu kami terus berjalan!",
 	"SUPPORT_US_SCREEN_PLATFORM": "Anda dapat melakukannya di Ko-fi.",
 	"MY_LOCATION_SCREEN_TITLE": "Lokasi",
@@ -126,7 +126,7 @@
 	"NOTIFICATIONS_SCREEN_NOTIFICATION_BODY": "Ini adalah pengingat yang baik untuk menambahkan emisi Anda untuk minggu ini.",
 	"INFO_MODAL_SCREEN_METHODOLOGY": "Metodologi",
 	"MY_DATA_SCREEN_TITLE": "My Data",
-	"MY_DATA_SCREEN_BODY": "With NMF.earth, you own your data. It means that we don't save your data on any server and therefore that no one but you can access it. No security problem, your data never leaves your phone. However, it also means that you are in charge of saving your data in case you loose your phone for example. To do so, use the export button below to get your data and save it where ever you want to. When you want to import old data, just press the import button but be careful because it will also delete your old data.",
+	"MY_DATA_SCREEN_BODY": "With Carboom., you own your data. It means that we don't save your data on any server and therefore that no one but you can access it. No security problem, your data never leaves your phone. However, it also means that you are in charge of saving your data in case you loose your phone for example. To do so, use the export button below to get your data and save it where ever you want to. When you want to import old data, just press the import button but be careful because it will also delete your old data.",
 	"MY_DATA_SCREEN_EXPORT_MY_DATA": "Export my data",
 	"MY_DATA_SCREEN_IMPORT_DATA": "Import data",
 	"MY_DATA_SCREEN_DELETE_ALL_MY_DATA": "Delete all my data",
@@ -216,5 +216,5 @@
 	"NO_EMISSION_COMPONENT_ADD_FIRST_EMISSION": "Tambahkan emisi pertama saya",
 	"PERMISSIONS_REQUEST_COMPONENT_OPEN_SETTINGS": "Buka pengaturan",
 	"PERMISSIONS_REQUEST_COMPONENT_CAMERA_TITLE": "Tidak ada akses ke kamera",
-	"PERMISSIONS_REQUEST_COMPONENT_CAMERA_SUBTITLE": "Tolong beri akses aplikasi NMF.earth ke kamera di pengaturan ponsel Anda untuk menggunakan fitur ini."
+	"PERMISSIONS_REQUEST_COMPONENT_CAMERA_SUBTITLE": "Tolong beri akses aplikasi Carboom. ke kamera di pengaturan ponsel Anda untuk menggunakan fitur ini."
 }

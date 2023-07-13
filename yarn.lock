@@ -2422,10 +2422,25 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
+"@types/react-native-vector-icons@^6.4.6":
+  version "6.4.13"
+  resolved "https://registry.yarnpkg.com/@types/react-native-vector-icons/-/react-native-vector-icons-6.4.13.tgz#28b34d15094e040718beefb67cb3eff0c4994cb6"
+  integrity sha512-1PqFoKuXTSzMHwGMAr+REdYJBQAbe9xrww3ecZR0FsHcD1K+vGS/rxuAriL4rsI6+p69sZQjDzpEVAbDQcjSwA==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "^0.70"
+
 "@types/react-native@*":
   version "0.69.1"
   resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.69.1.tgz"
   integrity sha512-Vy8yvbR2bdUXTZ3u4DBFUGxo26h7p71Cdv7JtO6ZEXD4mpediuRMbRqyoWirlQB/p9Vh3lYVVViNyt8JK/05NA==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-native@^0.70":
+  version "0.70.14"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.70.14.tgz#8619b8c94296f6456c5362d74a3d1b4fad3f54ab"
+  integrity sha512-Kwc+BYBrnDqvacNxKp1UtcZJnJJnTih2NYmi/ieAKlHdxEPN6sYMwmIwgHdoLHggvml6bf3DYRaH2jt+gzaLjw==
   dependencies:
     "@types/react" "*"
 
@@ -2948,6 +2963,15 @@ available-typed-arrays@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
+
+axios@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.4.0.tgz#38a7bf1224cd308de271146038b551d725f0be1f"
+  integrity sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==
+  dependencies:
+    follow-redirects "^1.15.0"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
 
 babel-core@^7.0.0-bridge.0:
   version "7.0.0-bridge.0"
@@ -3606,7 +3630,7 @@ collection-visit@^1.0.0:
     map-visit "^1.0.0"
     object-visit "^1.0.0"
 
-color-convert@^1.9.0:
+color-convert@^1.9.0, color-convert@^1.9.3:
   version "1.9.3"
   resolved "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
   integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
@@ -3630,13 +3654,21 @@ color-name@~1.1.4:
   resolved "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-color-string@^1.9.0:
+color-string@^1.6.0, color-string@^1.9.0:
   version "1.9.1"
   resolved "https://registry.npmjs.org/color-string/-/color-string-1.9.1.tgz"
   integrity sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
+
+color@^3.1.2:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/color/-/color-3.2.1.tgz#3544dc198caf4490c3ecc9a790b54fe9ff45e164"
+  integrity sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==
+  dependencies:
+    color-convert "^1.9.3"
+    color-string "^1.6.0"
 
 color@^4.2.3:
   version "4.2.3"
@@ -4790,7 +4822,7 @@ expo-notifications@0.18.1:
 
 expo-sensors@^12.3.0:
   version "12.3.0"
-  resolved "https://registry.yarnpkg.com/expo-sensors/-/expo-sensors-12.3.0.tgz#a3f0f86f54cf5d06a4e643d6678bc15ff4a446c9"
+  resolved "https://registry.npmjs.org/expo-sensors/-/expo-sensors-12.3.0.tgz"
   integrity sha512-KYL/WsJNJGTHRzpeCblPleuqaoCCHbIEQHg3NiRVVG1ismlGnisCPI6OBWYVZhfCJ0FjGvK0Z311Ac/KY8JSpA==
   dependencies:
     invariant "^2.2.4"
@@ -5113,6 +5145,11 @@ flow-parser@0.*, flow-parser@^0.185.0:
   version "0.185.2"
   resolved "https://registry.npmjs.org/flow-parser/-/flow-parser-0.185.2.tgz"
   integrity sha512-2hJ5ACYeJCzNtiVULov6pljKOLygy0zddoqSI1fFetM+XRPpRshFdGEijtqlamA1XwyZ+7rhryI6FQFzvtLWUQ==
+
+follow-redirects@^1.15.0:
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
+  integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
 
 fontfaceobserver@^2.1.0:
   version "2.3.0"
@@ -7950,7 +7987,7 @@ open@^8.0.4, open@^8.3.0, open@^8.4.0:
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
 
-opencollective-postinstall@^2.0.2:
+opencollective-postinstall@^2.0.2, opencollective-postinstall@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npmjs.org/opencollective-postinstall/-/opencollective-postinstall-2.0.3.tgz"
   integrity sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
@@ -8521,6 +8558,13 @@ react-is@^18.0.0, react-is@^18.2.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-native-accurate-step-counter@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/react-native-accurate-step-counter/-/react-native-accurate-step-counter-2.0.4.tgz"
+  integrity sha512-DHYboQ15QwKw2JUAwDgLG2aEvwYEewaUVL9sWXW4g6O74BtZ+3zKG7FaeBbl9hAfm3yHfD6Vwce+G3/ShSj7Ug==
+  dependencies:
+    react-native-shake "^4.0.2"
+
 react-native-codegen@^0.71.5:
   version "0.71.5"
   resolved "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.71.5.tgz"
@@ -8537,6 +8581,20 @@ react-native-collapsible@1.5.2:
   integrity sha512-pmETueIStEhKY93yO/nh+G9jyMZaZta9xyUO51KP+p/tefXDtDG8Ok9QELld0Fk/kiDOldvG5Tjy+JcdS8Sdxw==
   dependencies:
     prop-types "^15.6.2"
+
+react-native-elements@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-3.4.3.tgz#c33919002aef83a0c0f98d0ed56009714ad9b1b3"
+  integrity sha512-VtZc25EecPZyUBER85zFK9ZbY6kkUdcm1ZwJ9hdoGSCr1R/GFgxor4jngOcSYeMvQ+qimd5No44OVJW3rSJECA==
+  dependencies:
+    "@types/react-native-vector-icons" "^6.4.6"
+    color "^3.1.2"
+    deepmerge "^4.2.2"
+    hoist-non-react-statics "^3.3.2"
+    lodash.isequal "^4.5.0"
+    opencollective-postinstall "^2.0.3"
+    react-native-ratings "8.0.4"
+    react-native-size-matters "^0.3.1"
 
 react-native-gesture-handler@2.9.0:
   version "2.9.0"
@@ -8598,6 +8656,13 @@ react-native-progress@5.0.0:
   dependencies:
     prop-types "^15.7.2"
 
+react-native-ratings@8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-8.0.4.tgz#efd5ebad8acc08bf98d34d39b18fb7a6813ef991"
+  integrity sha512-Xczu5lskIIRD6BEdz9A0jDRpEck/SFxRqiglkXi0u67yAtI1/pcJC76P4MukCbT8K4BPVl+42w83YqXBoBRl7A==
+  dependencies:
+    lodash "^4.17.15"
+
 react-native-reanimated@2.14.4:
   version "2.14.4"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-2.14.4.tgz"
@@ -8636,10 +8701,20 @@ react-native-screens@3.20.0:
 
 react-native-sensors@^7.3.6:
   version "7.3.6"
-  resolved "https://registry.yarnpkg.com/react-native-sensors/-/react-native-sensors-7.3.6.tgz#147dea0d33227e46d3c2b34802b6945f5ce56dc6"
+  resolved "https://registry.npmjs.org/react-native-sensors/-/react-native-sensors-7.3.6.tgz"
   integrity sha512-h3ispHU6BqhVsMMBIMfJWdwoqHNoSae1wv2RNl2hVOoV1rbFuSbQluQsuZirva6uRDaZVeVwaE5th3HIf+9ykQ==
   dependencies:
     rxjs ">= 6"
+
+react-native-shake@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/react-native-shake/-/react-native-shake-4.0.2.tgz"
+  integrity sha512-2niPeI2d5blkbtOwHZ9aoPEue5Uas2IViZKc3jMJ7NIycSQKBw/gRhEYl4mNagCOF6zD6b30lQRBEqhCZvkAoA==
+
+react-native-size-matters@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz#24d0cfc335a2c730f6d58bd7b43ea5a41be4b49f"
+  integrity sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw==
 
 react-native-svg@13.4.0:
   version "13.4.0"
@@ -9050,14 +9125,7 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-"rxjs@>= 6":
-  version "7.8.1"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.8.1.tgz#6f6f3d99ea8044291efd92e7c7fcf562c4057543"
-  integrity sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==
-  dependencies:
-    tslib "^2.1.0"
-
-rxjs@^6.4.0:
+"rxjs@>= 6", rxjs@^6.4.0:
   version "6.6.7"
   resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.6.7.tgz"
   integrity sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==
