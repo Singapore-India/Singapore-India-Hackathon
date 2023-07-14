@@ -19,6 +19,7 @@ import { useTheme } from 'react-native-paper';
 import { AuthContext } from '../components/context';
 
 import Users from '../model/users';
+import { color } from 'react-native-reanimated';
 
 const SignInScreen = ({navigation}) => {
 
@@ -227,7 +228,7 @@ const SignInScreen = ({navigation}) => {
 
                 <TouchableOpacity
                     onPress={() => navigation.navigate('SignUpScreen')}
-                    style={[styles.signIn, {
+                    style={[styles.signup, {
                         borderColor: '#009387',
                         borderWidth: 1,
                         marginTop: 15
@@ -306,7 +307,15 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10
+        borderRadius: 10,
+        backgroundColor: '#009387'
+    },
+    signup: {
+        width: '100%',
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
     },
     textSign: {
         fontSize: 18,
