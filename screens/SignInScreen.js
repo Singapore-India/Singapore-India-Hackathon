@@ -21,6 +21,8 @@ import { AuthContext } from '../components/context';
 import Users from '../model/users';
 import { color } from 'react-native-reanimated';
 
+import axios from 'axios';
+
 const SignInScreen = ({navigation}) => {
 
     const [data, setData] = React.useState({
@@ -93,9 +95,9 @@ const SignInScreen = ({navigation}) => {
 
     const loginHandle = (userName, password) => {
 
-        const foundUser = Users.filter( item => {
-            return userName == item.username && password == item.password;
-        } );
+      
+
+       let foundUser = {};
 
         if ( data.username.length == 0 || data.password.length == 0 ) {
             Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
@@ -104,13 +106,41 @@ const SignInScreen = ({navigation}) => {
             return;
         }
 
-        if ( foundUser.length == 0 ) {
-            Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+   
+        let token= '';
+            axios.post("http://10.1.156.187:8000/api/user/login/", {
+                username: userName,
+                password: password
+            }).then((response)=>{
+                // console.log("found user",foundUser)
+                console.log(response.data)
+                token = response.data.token
+                foundUser= {
+                    "username": userName,
+                    "userToken": token,
+                    "password": password,
+                }
+                console.log('found user11',foundUser)   
+                signIn(foundUser);  
+                return 
+
+            })
+            .catch((err)=>{
+                console.log('error',err)
+             
+            })
+
+            if(foundUser == undefined){
+
+            Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
                 {text: 'Okay'}
             ]);
-            return;
         }
-        signIn(foundUser);
+        
+
+        // userName == item.username && password == item.password;
+        console.log(foundUser)
+        
     }
 
     return (

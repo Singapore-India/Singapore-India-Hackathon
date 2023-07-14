@@ -141,8 +141,8 @@ const App: React.FC = () => {
     signIn: async(foundUser) => {
       // setUserToken('fgkj');
       // setIsLoading(false);
-      const userToken = String(foundUser[0].userToken);
-      const userName = foundUser[0].username;
+      const userToken = String(foundUser.userToken);
+      const userName = foundUser.username;
       
       try {
         await AsyncStorage.setItem('userToken', userToken);

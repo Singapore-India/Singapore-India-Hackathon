@@ -15,6 +15,7 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import axios from 'axios';
 
 const SignInScreen = ({navigation}) => {
 
@@ -55,6 +56,28 @@ const SignInScreen = ({navigation}) => {
             ...data,
             confirm_password: val
         });
+    }
+
+    const handleSignUp = async(username,password) => {
+
+        axios.post("http://10.1.156.187:8000/api/user/signup/", {
+            username: username,
+            password: password
+        }).then((response)=>{
+            // console.log("found user",foundUser)
+            console.log(response.data)
+
+
+         
+ 
+
+        })
+        .catch((err)=>{
+            console.log('error',err)
+         
+        })
+
+        navigation.goBack();
     }
 
     const updateSecureTextEntry = () => {
@@ -188,7 +211,7 @@ const SignInScreen = ({navigation}) => {
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => {}}
+                    onPress={() => {handleSignUp(data.username,data.password)}}
                 >
                 {/* <LinearGradient
                     colors={['#08d4c4', '#01ab9d']}
@@ -201,7 +224,9 @@ const SignInScreen = ({navigation}) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => navigation.goBack()}
+                    onPress={() => {handleSignUp(data.username,data.password)}}
+                    
+                    // onPress={() => navigation.goBack()}
                     style={[styles.signIn, {
                         borderColor: '#009387',
                         borderWidth: 1,
@@ -210,7 +235,7 @@ const SignInScreen = ({navigation}) => {
                 >
                     <Text style={[styles.textSign, {
                         color: '#009387'
-                    }]}>Sign In</Text>
+                    }]}>Sign UP</Text>
                 </TouchableOpacity>
             </View>
             </ScrollView>
