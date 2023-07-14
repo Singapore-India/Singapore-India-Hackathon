@@ -60,6 +60,7 @@ const BudgetScreen: NavStatelessComponent = () => {
   const customCurrentYearEmissions = useSelector(selectors.getCurrentYearCustomCarbonValue);
   const totalCurrentYearEmissions = useSelector(selectors.getCurrentYearAllCarbonValue);
   const [stepCount, setStepCount] = useState(0);
+
   
   const fetchSteps = async () => {
     // let result  = await axios.get("https://v1.nocodeapi.com/harshmr/fit/rneUryXiRdGlqISd/aggregatesDatasets?dataTypeName=steps_count")
@@ -81,15 +82,15 @@ const BudgetScreen: NavStatelessComponent = () => {
   ];
 
   var challenges = [
-    { name: "Walk challenge 🏃‍♂️", term: '' },
-    { name: "Use Public Transport 🚌", term: ['bus','train','metro'] },
-    { name: "Plant a tree 🌳", term: ['plant','tree','sapling'] },
-    { name: "Eat Fruits", term: ['fruits'] }
+    { name: "Walk challenge 🏃‍♂️", term: 1000 },
+    { name: "Use Public Transport 🚌", term: ['Bus','Train','Metro'] },
+    // { name: "Plant a tree 🌳", term: ['Plant','Tree','Sapling'] },
+    // { name: "Eat Fruits", term: ['fruits'] }
   ];
 
  var randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
   
-
+ let props = randomChallenge;
   
   // Display the selected challenge
   console.log("Challenge: " + randomChallenge.name);
@@ -157,7 +158,14 @@ const BudgetScreen: NavStatelessComponent = () => {
       <View style={style.container}>
         <Text style={style.challengeText}>{randomChallenge.name}</Text>
         <TouchableOpacity style={style.button} 
-        onPress={() => {navigator.openChallenges({randomChallenge})}}
+        // onPress={() => {navigator.openChallenges()(props={randomChallenge})}}
+        onPress={() => {
+          console.log('props',props);
+          navigation.navigate("Challenge", {
+            screen: "Challenge",
+            params: props,
+          });
+        }}
         >
           <Text style={style.buttonText}>Accept Challenge</Text>
         </TouchableOpacity>

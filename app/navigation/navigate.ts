@@ -136,7 +136,7 @@ const navigate = (navigation) => ({
   openStorybook: navigateOneTime(openStorybook(navigation)),
   openLanguages: navigateOneTime(openLanguages(navigation)),
   openEmissions: navigateOneTime(openEmissions(navigation)),
-  openChallenges: navigateOneTime(openChallenges(navigation)),
+  openChallenges: navigateOneTime(openChallenges(navigation, )),
 });
 
 export default navigate;
