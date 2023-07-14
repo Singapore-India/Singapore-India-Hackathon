@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import BudgetScreen from "../../../screens/Budget";
 import MontlyBudgetScreen from "../../../screens/MonthlyBudget";
 import AddEmissionScreen from "../../../screens/AddEmission";
+import Challenge from "../../../screens/Challenge/Challenge";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ const BudgetNavigator = (): React.ReactElement => (
       name="AddEmission"
       options={AddEmissionScreen.navigationOptions}
       component={AddEmissionScreen}
+    />
+    <Stack.Screen
+      name="Challenge"
+      options={Challenge.navigationOptions}
+      component={Challenge}
     />
   </Stack.Navigator>
 );

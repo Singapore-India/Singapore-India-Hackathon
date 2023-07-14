@@ -15,40 +15,62 @@ import { useTheme } from '@react-navigation/native';
 
 const SplashScreen = ({navigation}) => {
     const { colors } = useTheme();
+    const carbonFacts = [
+        "Planting one tree can absorb up to one ton of carbon dioxide over its lifetime.",
+        "Using energy-efficient appliances can reduce carbon emissions by up to 30%.",
+        "Walking or cycling instead of driving can significantly lower your carbon footprint.",
+        "Reducing meat consumption can help decrease greenhouse gas emissions.",
+        "Unplugging electronics when not in use can save energy and reduce carbon emissions.",
+        "Renewable energy sources, like solar and wind power, produce little to no carbon emissions.",
+        "Buying locally grown produce reduces transportation-related carbon emissions.",
+        "Insulating your home properly can lead to significant energy savings.",
+        "Using public transportation can reduce carbon emissions by more than 20 times compared to driving.",
+        "Composting organic waste helps prevent the release of methane, a potent greenhouse gas.",
+        "Air-drying clothes instead of using a dryer saves energy and reduces carbon emissions.",
+        "Using reusable water bottles and shopping bags reduces plastic waste and carbon emissions.",
+        "Eating a plant-based diet has a lower carbon footprint compared to a meat-heavy diet.",
+        "Installing low-flow showerheads and faucets can save water and reduce energy consumption.",
+        "Opting for virtual meetings instead of traveling reduces carbon emissions from transportation.",
+        "Choosing energy-efficient lighting options, such as LED bulbs, saves electricity.",
+        "Properly maintaining vehicles can improve fuel efficiency and reduce carbon emissions.",
+        "Using a programmable thermostat can optimize energy usage and reduce carbon emissions.",
+        "Supporting companies and organizations that prioritize sustainability helps drive change.",
+        "Educating others about carbon footprint reduction can inspire collective action."
+      ];
+      
+      // Function to get a random fact from the array
+      function getRandomFact() {
+        return carbonFacts[Math.floor(Math.random() * carbonFacts.length)];
+      }
+
+      const randomFact = getRandomFact();
+
+      
 
     return (
       <View style={styles.container}>
-          <StatusBar backgroundColor='#009387' barStyle="light-content"/>
-        {/* <View style={styles.header}>
+ 
+        <View style={styles.header}>
             <Animatable.Image 
                 animation="bounceIn"
-                duraton="1500"
             source={require('../assets/logo.png')}
             style={styles.logo}
             resizeMode="stretch"
             />
-        </View>
-     */}
-            <Text style={[styles.title, {
-                color: colors.text
-            }]}>Stay connected with everyone!</Text>
-            <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
-            <Text style={styles.textSign}>Get Started</Text>
-                {/* <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
-                    style={styles.signIn}
-                >
-                    
-                    <MaterialIcons 
-                        name="navigate-next"
-                        color="#fff"
-                        size={20}
-                    />
-                </LinearGradient> */}
+
+                <View style={styles.buttonDesign}>
+
+            <Text style={styles.textSign}>I want to save the Planet 🌏</Text>
+      
+                </View>
+            
             </TouchableOpacity>
+            <Text style={[styles.tip, {color: colors.text}]}>{randomFact}</Text>
             </View>
+        </View>
+ 
        
       </View>
     );
@@ -56,13 +78,14 @@ const SplashScreen = ({navigation}) => {
 
 export default SplashScreen;
 
-const {height} = Dimensions.get("screen");
-const height_logo = height * 0.28;
+const {height,width} = Dimensions.get("screen");
+const height_logo = height * 0.15;
+const width_logo = width * 0.9;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#009387'
+    backgroundColor: '#ffffff'
   },
   header: {
       flex: 2,
@@ -78,12 +101,12 @@ const styles = StyleSheet.create({
       paddingHorizontal: 30
   },
   logo: {
-      width: height_logo,
+      width: width_logo,
       height: height_logo
   },
   title: {
       color: '#05375a',
-      fontSize: 30,
+      fontSize: 15,
       fontWeight: 'bold'
   },
   text: {
@@ -104,7 +127,27 @@ const styles = StyleSheet.create({
   },
   textSign: {
       color: 'white',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontSize: 20
+    
+  },
+  buttonDesign: {
+    width: 300,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    flexDirection: 'row',
+    backgroundColor: '#B05EB5'
   }
+  ,tip:{
+    marginTop: 20,
+    color: '#05375a',
+      fontSize: 15,
+      fontWeight: 'bold'
+    
+  }
+
+
 });
 

@@ -224,10 +224,10 @@ const App: React.FC = () => {
  
 
   if (ready) {
-    if(loginState.userToken === null){
-      body= <RootStackScreen />
-    }
-    else{
+    // if(loginState.userToken === null){
+    //   body= <RootStackScreen />
+    // }
+    // else{
     body = (
       <Provider store={store}>
         <GlobalizeProvider locale={language || defaultLanguage}>
@@ -250,7 +250,7 @@ const App: React.FC = () => {
         </GlobalizeProvider>
       </Provider>
     );
-            }
+            // }
   }
 
   return (

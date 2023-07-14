@@ -41,6 +41,12 @@ const openComingSoonModal = (navigation) => (props = {}) => {
 const openMontlyBudget = (navigation) => (props = {}) => {
   navigation.push("MonthlyBudget", props);
 };
+const openChallenges = (navigation) => (props = {}) => {
+  navigation.navigate("Challenge", {
+    screen: "Challenge",
+    params: props,
+  });
+}
 
 const openAddEmission = (navigation) => (props = {}) => {
   navigation.push("AddEmission", props);
@@ -130,6 +136,7 @@ const navigate = (navigation) => ({
   openStorybook: navigateOneTime(openStorybook(navigation)),
   openLanguages: navigateOneTime(openLanguages(navigation)),
   openEmissions: navigateOneTime(openEmissions(navigation)),
+  openChallenges: navigateOneTime(openChallenges(navigation)),
 });
 
 export default navigate;

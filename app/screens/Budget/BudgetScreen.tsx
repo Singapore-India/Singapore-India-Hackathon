@@ -139,7 +139,9 @@ const BudgetScreen: NavStatelessComponent = () => {
       <View style={style.cardDivider} />
       <View style={style.container}>
         <Text style={style.challengeText}>Plant a tree today!!</Text>
-        <TouchableOpacity style={style.button} onPress={() => console.log('Challenge accepted!')}>
+        <TouchableOpacity style={style.button} 
+        onPress={() => {navigator.openChallenges()}}
+        >
           <Text style={style.buttonText}>Accept Challenge</Text>
         </TouchableOpacity>
       </View>
