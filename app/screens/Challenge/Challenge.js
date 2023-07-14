@@ -2,7 +2,7 @@ import * as ImagePicker from 'expo-image-picker';
 import React from 'react';
 import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
-const API_KEY = 'AIzaSyAd6cwX7hq6t0ytO4yqnIJiwtgMuaVuMv0';
+const API_KEY = '';
 const API_URL = `https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}`;
 import navigationOptions from "./Challenge.navigationOption";
 
@@ -38,7 +38,7 @@ async function callGoogleVisionAsync(image) {
   return result.responses[0].labelAnnotations[0].description;
 }
 
-export default function Challenge() {
+export default function Challenge({randomChallenge}) {
   const [image, setImage] = React.useState(null);
   const [status, setStatus] = React.useState(null);
   const [permissions, setPermissions] = React.useState(false);
@@ -53,7 +53,7 @@ export default function Challenge() {
       setPermissions(true);
     }
   };
-
+  console.log('randomChallenge',randomChallenge)
   const takePictureAsync = async () => {
     const { cancelled, uri, base64 } = await ImagePicker.launchCameraAsync({
       base64: true,
@@ -79,6 +79,7 @@ export default function Challenge() {
 
   return (
     <View style={styles.container}>
+      {/* <Text>{randomChallenge.name}</Text> */}
       {permissions === false ? (
         <Button onPress={askPermissionsAsync} title="Ask permissions" />
       ) : (

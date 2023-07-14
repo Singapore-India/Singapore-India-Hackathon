@@ -23,6 +23,7 @@ import axios from "axios";
 
 
 const BudgetScreen: NavStatelessComponent = () => {
+
   const navigation = useNavigation();
   const navigator = navigate(navigation);
 
@@ -78,6 +79,22 @@ const BudgetScreen: NavStatelessComponent = () => {
     { day: 'Sat', signedIn: true, consecutiveDays: 2 },
     { day: 'Sun', signedIn: true, consecutiveDays: 3 },
   ];
+
+  var challenges = [
+    { name: "Walk challenge 🏃‍♂️", term: '' },
+    { name: "Use Public Transport 🚌", term: ['bus','train','metro'] },
+    { name: "Plant a tree 🌳", term: ['plant','tree','sapling'] },
+    { name: "Eat Fruits", term: ['fruits'] }
+  ];
+
+ var randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
+  
+
+  
+  // Display the selected challenge
+  console.log("Challenge: " + randomChallenge.name);
+  console.log("Accepted Term: " + randomChallenge.term);
+  
   
 
 
@@ -138,9 +155,9 @@ const BudgetScreen: NavStatelessComponent = () => {
       <Text style={style.cardTitle}>Daily Challenge</Text>
       <View style={style.cardDivider} />
       <View style={style.container}>
-        <Text style={style.challengeText}>Plant a tree today!!</Text>
+        <Text style={style.challengeText}>{randomChallenge.name}</Text>
         <TouchableOpacity style={style.button} 
-        onPress={() => {navigator.openChallenges()}}
+        onPress={() => {navigator.openChallenges({randomChallenge})}}
         >
           <Text style={style.buttonText}>Accept Challenge</Text>
         </TouchableOpacity>
