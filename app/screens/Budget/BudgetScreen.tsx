@@ -102,10 +102,17 @@ const BudgetScreen: NavStatelessComponent = () => {
       });
   };
 
+  let username = new Array();
+  let coinsArray = new Array();
 
   const getLeaderboard = async () => {
     let userArray = await axios.get("http://10.1.156.61:8000/api/user/getleaderboard/");
-    console.log(userArray[0].data.username);
+    
+    for(let i = 0; i<userArray.data.users.length; i++){
+      username.push(userArray.data.users[i].username);
+      coinsArray.push(userArray.data.users[i].coins);
+    }
+    console.log("the array is " + username + " " + coinsArray);
   }
 
 
@@ -136,10 +143,10 @@ const BudgetScreen: NavStatelessComponent = () => {
   }, []);
 
   var leaderboardData = [
-    { name: "Harsh", score: 100 },
-    { name: "Piyush", score: 80 },
-    { name: "Tong", score: 70 },
-    { name: "Johannes", score: 90 },
+    { name: "Harsh", score: 300 },
+    { name: "Piyush", score: 100 },
+    { name: "PPKulkarni", score: 200 },
+    { name: "Johannes", score: 100 },
   ];
 
   var challenges = [
