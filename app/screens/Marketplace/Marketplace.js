@@ -40,11 +40,11 @@ export default function Marketplace () {
     AsyncStorage.getItem("userName").then((res) => {
       console.log('res',res);
       user = res;
-      axios.post("http://10.1.156.187:8000/api/user/buy/",{
+      axios.post("10.1.156.61:8000/api/user/buy/",{
       "username": user,
       "productPrice":coupons[couponId-1].price,
     }).then((res) => {
-      axios.post("http://10.1.156.187:8000/api/user/addcoupon/",{
+      axios.post("10.1.156.61:8000/api/user/addcoupon/",{
         "username": user,
         "coupon":coupons[couponId-1]
       })

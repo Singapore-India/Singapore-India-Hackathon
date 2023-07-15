@@ -53,7 +53,7 @@ export default function Coupons () {
             console.log('res',res);
             user = res;
         
-            axios.post("http://10.1.156.187:8000/api/user/getcoupons/",{
+            axios.post("http://10.1.156.61:8000/api/user/getcoupons/",{
             "username": user,
             }).then((res) => {
               console.log("ccccc",res.data.coupons);

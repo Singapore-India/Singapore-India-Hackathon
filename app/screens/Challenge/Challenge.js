@@ -98,7 +98,7 @@ export default function Challenge() {
 
         }
         if(check==true){
-          axios.post("http://10.1.156.187:8000/api/user/addcoins",{
+          axios.post("http://10.1.156.61:8000/api/user/addcoins",{
             "amount": 10,
             "username": "harsh"
           }).then((res) => {

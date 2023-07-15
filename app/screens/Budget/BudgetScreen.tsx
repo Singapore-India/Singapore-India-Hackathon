@@ -19,9 +19,14 @@ import { ScreenWidth } from "react-native-elements/dist/helpers";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
+import Leaderboard from "./LeaderBoard";
 
-
-
+const leaderboardData = [
+  { name: 'John', score: 100 },
+  { name: 'Jane', score: 80 },
+  { name: 'Bob', score: 70 },
+  { name: 'Alice', score: 90 },
+];
 
 
 const BudgetScreen: NavStatelessComponent = () => {
@@ -74,12 +79,12 @@ const BudgetScreen: NavStatelessComponent = () => {
     AsyncStorage.getItem("userName").then((res) => {
       console.log('res',res);
       user = res;
-      axios.post("http://10.1.156.187:8000/api/user/getcoins/",{
+      axios.post("http://10.1.156.61:8000/api/user/getcoins/",{
       "username": user,
     }).then((res) => {
       console.log(res.data.coins);
       setCoins(res.data.coins);
-      axios.post("http://10.1.156.187:8000/api/user/getcoupons/",{
+      axios.post("http://10.1.156.61:8000/api/user/getcoupons/",{
       "username": user,
       }).then((res) => {
         console.log(res.data);
@@ -289,6 +294,7 @@ const BudgetScreen: NavStatelessComponent = () => {
         customEmissions={customCurrentYearEmissions}
         monthlyEmissionsBudget={monthlyCarbonBudget}
       />
+      <Leaderboard data={leaderboardData}/>
     </ScrollView>
   );
 };

@@ -60,7 +60,7 @@ const SignInScreen = ({navigation}) => {
 
     const handleSignUp = async(username,password) => {
 
-        axios.post("http://10.1.156.187:8000/api/user/signup/", {
+        axios.post("http://10.1.156.61:8000/api/user/signup/", {
             username: username,
             password: password
         }).then((response)=>{

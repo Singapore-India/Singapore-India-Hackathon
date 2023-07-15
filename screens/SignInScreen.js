@@ -108,7 +108,7 @@ const SignInScreen = ({navigation}) => {
 
    
         let token= '';
-            axios.post("http://10.1.156.187:8000/api/user/login/", {
+            axios.post("http://10.1.156.61:8000/api/user/login/", {
                 username: userName,
                 password: password
             }).then((response)=>{
