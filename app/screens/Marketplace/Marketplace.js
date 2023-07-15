@@ -9,7 +9,7 @@ const CouponItem = ({ coupon, onBuyPress }) => {
   const { title, price, description } = coupon;
 
   return (
-    <View style={[{paddingVertical:7,backgroundColor:"#ffff",margin:"1%",borderRadius:"5%", display:"flex",flexDirection:"row",justifyContent:"space-between"}]}>
+    <View style={[{paddingVertical:7,backgroundColor:"#ffff",margin:"1%",borderRadius:5, display:"flex",flexDirection:"row",justifyContent:"space-between",padding:2}]}>
       <View >
 
       <Text style={styles.title}>{title}</Text>

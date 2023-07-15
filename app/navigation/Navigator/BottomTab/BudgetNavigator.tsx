@@ -6,6 +6,7 @@ import MontlyBudgetScreen from "../../../screens/MonthlyBudget";
 import AddEmissionScreen from "../../../screens/AddEmission";
 import Challenge from "../../../screens/Challenge/Challenge";
 import Marketplace from "../../../screens/Marketplace/Marketplace";
+import Coupons from "../../../screens/Coupons/Coupons";
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,12 @@ const BudgetNavigator = (): React.ReactElement => (
       name="Marketplace"
       options={Marketplace.navigationOptions}
       component={Marketplace}
+    />
+    <Stack.Screen
+    name="Coupons"
+    options={Coupons.navigationOptions}
+    component={Coupons}
+
     />
   </Stack.Navigator>
 );

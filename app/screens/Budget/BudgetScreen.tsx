@@ -220,7 +220,14 @@ const BudgetScreen: NavStatelessComponent = () => {
         </TouchableOpacity>
 </View>
 <View style={[style.cardContainer, { backgroundColor: '#rgba(51, 153, 102, 0.7)' ,width:'48%',marginLeft:"1.6%" }]}>
-      
+      <TouchableOpacity
+      onPress={() => {
+        console.log('props',props);
+        navigation.navigate("Coupons", {
+          screen: "Coupons",
+          params: props,
+        });
+      }}>
       <View style={style.cardDivider} />
       <View style={style.container}>
         <Text style={style.challengeText}>All Coupons 🏷️</Text>
@@ -241,6 +248,7 @@ const BudgetScreen: NavStatelessComponent = () => {
           <Text style={style.buttonText}>Accept Challeng</Text>
         </TouchableOpacity> */}
       </View>
+      </TouchableOpacity>
     </View>
 </View>
       
