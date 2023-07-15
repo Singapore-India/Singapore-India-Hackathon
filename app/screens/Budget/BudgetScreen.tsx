@@ -20,12 +20,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Leaderboard from "./LeaderBoard";
 
-const leaderboardData = [
-  { name: "John", score: 100 },
-  { name: "Jane", score: 80 },
-  { name: "Bob", score: 70 },
-  { name: "Alice", score: 90 },
-];
+
 
 const BudgetScreen: NavStatelessComponent = () => {
   const navigation = useNavigation();
@@ -65,6 +60,8 @@ const BudgetScreen: NavStatelessComponent = () => {
   const [stepCount, setStepCount] = useState(0);
   const [coins, setCoins] = useState(0);
   const [couponCount, setCouponCount] = useState(0);
+
+  const [click, clicked] = useState(true);
 
   const fetchCoins = async () => {
     // let result  = await axios.get("https://v1.nocodeapi.com/harshmr/fit/rneUryXiRdGlqISd/aggregatesDatasets?dataTypeName=steps_count")
@@ -112,20 +109,27 @@ const BudgetScreen: NavStatelessComponent = () => {
   const [signInHistory, setSignInHistory] = useState([]);
   const [today, setToday] = useState("");
 
-  const getCurrentDate = () => {
-    const today1 = new Date();
-    console.log("Todays Day" + today1);
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const currentDay = days[today1.getDay()];
-    setToday(currentDay);
-    return currentDay;
-  };
 
+  const signInHistory1 = [
+  
+    { day: 'Wed', signedIn: true, consecutiveDays: 3 },
+    { day: 'Thu', signedIn: false, consecutiveDays: 0 },
+    { day: 'Fri', signedIn: true, consecutiveDays: 1 },
+    { day: 'Sat', signedIn: true, consecutiveDays: 2 },
+    { day: 'Sun', signedIn: false, consecutiveDays: 0 },
+  ];
+  
 
   useEffect(() => {
     updateSignInHistory();
   }, []);
 
+  var leaderboardData = [
+    { name: "Harsh", score: 100 },
+    { name: "Piyush", score: 80 },
+    { name: "Tong", score: 70 },
+    { name: "Johannes", score: 90 },
+  ];
 
   var challenges = [
     { name: "Walk challenge 🏃‍♂️", term: 1000 },
@@ -142,10 +146,18 @@ const BudgetScreen: NavStatelessComponent = () => {
   console.log("Challenge: " + randomChallenge.name);
   console.log("Accepted Term: " + randomChallenge.term);
 
+  const getCurrentDate = () => {
+    const today1 = new Date();
+    console.log("Todays Day" + today1);
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const currentDay = days[today1.getDay()];
+    setToday(currentDay);
+    return currentDay;
+  };
+
   const updateSignInHistory = () => {
     const currentDate = getCurrentDate();
-    const updatedHistory = signInHistory.slice(0, 4); // Keep only the last 4 days
-
+    const updatedHistory = [...signInHistory];
     const todaySignIn = {
       day: currentDate,
       signedIn: true,
@@ -161,25 +173,16 @@ const BudgetScreen: NavStatelessComponent = () => {
     }
 
     updatedHistory.unshift(todaySignIn);
-
-    setSignInHistory(updatedHistory);
+    setSignInHistory(updatedHistory.slice(0, 7)); // Keep only the last 5 days
   };
-
 
   const handleCheckIn = () => {
     const updatedHistory = signInHistory.map((item) => {
-      if (item.signedIn) {
-        return { ...item, consecutiveDays: item.consecutiveDays + 1 };
-      } else {
-        return { ...item, signedIn: true, consecutiveDays: 0 };
+      if (item.day === today && !item.signedIn) {
+        return { ...item, signedIn: true };
       }
+      return item;
     });
-
-    const currentDayIndex = updatedHistory.findIndex((item) => item.day === getCurrentDate());
-    const previousDayIndex = (currentDayIndex + 6) % 7;
-    const currentStreak = updatedHistory[previousDayIndex].consecutiveDays;
-
-    updatedHistory[currentDayIndex].consecutiveDays = currentStreak;
 
     setSignInHistory(updatedHistory);
   };
@@ -187,60 +190,60 @@ const BudgetScreen: NavStatelessComponent = () => {
 
   const renderSignInStatus = (signedIn, consecutiveDays) => {
     let containerStyle = styleDailyCheckin.crossContainer;
-    let textContent = "✖";
-
+    let textContent = '✖';
+  
     if (signedIn) {
       containerStyle = styleDailyCheckin.tickContainer;
-      textContent = "✔";
+      textContent = '✔';
     }
-
+  
     return (
       <View>
-        <TouchableOpacity onPress={handleCheckIn}>
-          <View style={[styleDailyCheckin.statusContainer, containerStyle]}>
-            <Text style={styleDailyCheckin.statusText}>{textContent}</Text>
-          </View>
-        </TouchableOpacity>
-        {signedIn && (
-          <View>
-            <Text style={styleDailyCheckin.checkInPoints}>{consecutiveDays} ⭐</Text>
-            {/* {consecutiveDays > 0 && (
-              <Text style={styleDailyCheckin.streak}>Streak: {consecutiveDays} days</Text>
-            )} */}
-          </View>
+
+      <View style={[styleDailyCheckin.statusContainer, containerStyle]}>
+        <Text style={styleDailyCheckin.statusText}>{textContent}</Text>
+        
+      </View>
+      { (
+         <View >
+          <Text style={styleDailyCheckin.checkInPoints}>{consecutiveDays} ⭐</Text>
+  
+        </View>
         )}
       </View>
     );
   };
-
+  
   return (
     <ScrollView style={styles.container}>
        <View style={styleDailyCheckin.superContainer}>
         <Text style={styleDailyCheckin.Daily}>Daily Check-in 📅</Text>
         <View style={styleDailyCheckin.container}>
-          {signInHistory.slice(0, 1).map((item, index) => (
+          {signInHistory1.slice(0, 5).map((item, index) => (
             <View key={index} style={styleDailyCheckin.dayContainer}>
-              <Text style={styleDailyCheckin.day}>{item.day}</Text>
-              {renderSignInStatus(item.signedIn, item.consecutiveDays)}
-            </View>
+            <View  style={style.container}>
+  
+            {renderSignInStatus(item.signedIn, item.consecutiveDays)}
+          </View>
+          </View>
           ))}
           
         </View>
         {signInHistory.length > 0 && (
           <Text style={styleDailyCheckin.finalStreak}>
-            Logged In: {signInHistory[0].consecutiveDays} times today
+            Current Streak: {signInHistory[0].consecutiveDays} 
           </Text>
         )}
-        <TouchableOpacity
+        {click && <TouchableOpacity
             style={style.button}
-            // onPress={() => {navigator.openChallenges()(props={randomChallenge})}}
             onPress={() => {
               updateSignInHistory();
+              clicked(false);
             }}
           >
             <Text style={style.buttonText}>Check-In Now</Text>
 
-          </TouchableOpacity>
+          </TouchableOpacity>}
       </View>
 
       <View style={[style.cardContainer, { backgroundColor: "#rgba(51, 153, 102, 0.7)" }]}>
@@ -360,7 +363,10 @@ const BudgetScreen: NavStatelessComponent = () => {
         customEmissions={customCurrentYearEmissions}
         monthlyEmissionsBudget={monthlyCarbonBudget}
       />
-      <Leaderboard data={leaderboardData} />
+      <View style={style.containers}>
+        
+        <Leaderboard data={leaderboardData} />
+      </View>
     </ScrollView>
   );
 };
@@ -395,6 +401,18 @@ const style = StyleSheet.create({
   },
   container: {
     alignItems: "center",
+    
+  },
+  containers: {
+    backgroundColor: "light-green",
+    paddingBottom: 14,
+    borderRadius: 14,
+    borderColor: "rgba(51, 153, 102, 0.7)",
+    borderWidth: 2,
+    marginVertical: 24,
+    paddingTop: 10,
+    marginHorizontal: 2,
+    flex: 1,
   },
   challengeText: {
     marginBottom: 10,
