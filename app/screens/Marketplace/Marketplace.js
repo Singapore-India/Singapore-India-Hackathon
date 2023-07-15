@@ -18,7 +18,11 @@ const CouponItem = ({ coupon, onBuyPress }) => {
       </View>
       <TouchableOpacity
         style={[styles.button , {justifyContent:"center",alignItems:"center"}]}
-        onPress={onBuyPress}
+        onPress={()=>{
+          onBuyPress();
+          alert("You have successfully purchased!!");
+        }}
+        
       >
         <Text style={styles.buttonText}>Buy Now</Text>
       </TouchableOpacity>

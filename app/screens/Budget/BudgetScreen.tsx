@@ -102,9 +102,20 @@ const BudgetScreen: NavStatelessComponent = () => {
       });
   };
 
+
+  const getLeaderboard = async () => {
+    let userArray = await axios.get("http://10.1.156.61:8000/api/user/getleaderboard/");
+    console.log(userArray[0].data.username);
+  }
+
+
   useEffect(() => {
     fetchCoins();
   }, [couponCount]);
+
+  useEffect(()=> {
+    getLeaderboard();
+  })
 
   const [signInHistory, setSignInHistory] = useState([]);
   const [today, setToday] = useState("");
@@ -239,6 +250,7 @@ const BudgetScreen: NavStatelessComponent = () => {
             onPress={() => {
               updateSignInHistory();
               clicked(false);
+              alert("User Checked In")
             }}
           >
             <Text style={style.buttonText}>Check-In Now</Text>
