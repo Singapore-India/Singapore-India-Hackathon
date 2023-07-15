@@ -43,8 +43,8 @@ module.exports = () => {
         {
           file: "sentry-expo/upload-sourcemaps",
           config: {
-            organization: "nmf",
-            project: "nmf-earth",
+            organization: "Carboom.",
+            project: "Carboom.",
             authToken: process.env.SENTRY_AUTH_TOKEN,
           },
         },

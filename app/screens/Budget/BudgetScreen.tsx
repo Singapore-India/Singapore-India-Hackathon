@@ -15,6 +15,8 @@ import { selectors } from "./ducks";
 import navigationOptions from "./BudgetScreen.navigationOptions";
 
 import axios from "axios";
+import { ScreenWidth } from "react-native-elements/dist/helpers";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 
@@ -60,17 +62,45 @@ const BudgetScreen: NavStatelessComponent = () => {
   const customCurrentYearEmissions = useSelector(selectors.getCurrentYearCustomCarbonValue);
   const totalCurrentYearEmissions = useSelector(selectors.getCurrentYearAllCarbonValue);
   const [stepCount, setStepCount] = useState(0);
+  const [coins, setCoins] = useState(0);
+  const [couponCount, setCouponCount] = useState(0);
 
   
-  const fetchSteps = async () => {
+  const fetchCoins = async () => {
     // let result  = await axios.get("https://v1.nocodeapi.com/harshmr/fit/rneUryXiRdGlqISd/aggregatesDatasets?dataTypeName=steps_count")
     // console.log(result.data.steps_count[0].value );
     // setStepCount(result.data.steps_count[0].value);
+    let user;
+    AsyncStorage.getItem("userName").then((res) => {
+      console.log('res',res);
+      user = res;
+      axios.post("http://10.1.156.187:8000/api/user/getcoins/",{
+      "username": user,
+    }).then((res) => {
+      console.log(res.data.coins);
+      setCoins(res.data.coins);
+      axios.post("http://10.1.156.187:8000/api/user/getcoupons/",{
+      "username": user,
+      }).then((res) => {
+        console.log(res.data);
+        setCouponCount(res.data.coupons.length);
+      }).catch((err) => {
+        console.log(err);
+      });
+      // setCompleted(true);
+    }).catch((err) => {
+      console.log(err);
+    })
+      // console.log(user);
+    }).catch((err) => {
+      console.log(err);
+    });
+    
   }
 
   useEffect(() => {
-    fetchSteps();
-  }, []);
+    fetchCoins();
+  }, [couponCount]);
 
   const signInHistory = [
   
@@ -83,7 +113,7 @@ const BudgetScreen: NavStatelessComponent = () => {
 
   var challenges = [
     { name: "Walk challenge 🏃‍♂️", term: 1000 },
-    { name: "Use Public Transport 🚌", term: ['Bus','Train','Metro'] },
+    // { name: "Use Public Transport 🚌", term: ['Bus','Train','Metro'] },
     // { name: "Plant a tree 🌳", term: ['Plant','Tree','Sapling'] },
     // { name: "Eat Fruits", term: ['fruits'] }
   ];
@@ -171,6 +201,48 @@ const BudgetScreen: NavStatelessComponent = () => {
         </TouchableOpacity>
       </View>
     </View>
+<View style={[{display:"flex" ,flexDirection:"row"}]}>
+
+<View style={[style.cardContainer, { backgroundColor: '#rgba(51, 153, 102, 0.7)' ,width:'48%' ,marginRight:"1.52%"}]}>
+      <TouchableOpacity
+      onPress={() => {
+        console.log('props',props);
+        navigation.navigate("Marketplace", {
+          screen: "Marketplace",
+          params: props,
+        });
+      }}>
+      <View style={style.cardDivider} />
+      <View style={style.container}>
+        <Text style={style.challengeText}>Coin Balance 🪙</Text>
+        <Text style={[{fontSize:50}]}>{coins}</Text>
+      </View>
+        </TouchableOpacity>
+</View>
+<View style={[style.cardContainer, { backgroundColor: '#rgba(51, 153, 102, 0.7)' ,width:'48%',marginLeft:"1.6%" }]}>
+      
+      <View style={style.cardDivider} />
+      <View style={style.container}>
+        <Text style={style.challengeText}>All Coupons 🏷️</Text>
+
+        <Text style={[{fontSize:50}]}>{couponCount}</Text>
+
+
+        {/* <TouchableOpacity style={style.button} 
+        // onPress={() => {navigator.openChallenges()(props={randomChallenge})}}
+        onPress={() => {
+          console.log('props',props);
+          navigation.navigate("Challenge", {
+            screen: "Challenge",
+            params: props,
+          });
+        }}
+        >
+          <Text style={style.buttonText}>Accept Challeng</Text>
+        </TouchableOpacity> */}
+      </View>
+    </View>
+</View>
       
    
     {/* <Text style={{ fontSize: 20, color: "red", textAlign: "center" }}>{stepCount}</Text> */}

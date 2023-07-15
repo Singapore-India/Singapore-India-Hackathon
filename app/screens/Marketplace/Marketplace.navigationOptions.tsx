@@ -10,7 +10,7 @@ const navigationOptions = (): StackNavigationOptions => ({
     ...ComponentsStyle.header,
   },
   headerBackTitle: null,
-  headerTitle: () => <Text.H1 style={Layout.androidNavTitle}>Complete Challenge</Text.H1>,
+  headerTitle: () => <Text.H1 style={Layout.androidNavTitle}>Redeem Coupons</Text.H1>,
 });
 
 export default navigationOptions;

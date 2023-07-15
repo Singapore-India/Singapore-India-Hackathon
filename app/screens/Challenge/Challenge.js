@@ -8,6 +8,8 @@ const API_KEY = 'AIzaSyAd6cwX7hq6t0ytO4yqnIJiwtgMuaVuMv0';
 const API_URL = `https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}`;
 import navigationOptions from "./Challenge.navigationOption";
 import axios from 'axios';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 async function callGoogleVisionAsync(image) {
   const body = {
@@ -51,6 +53,7 @@ export default function Challenge() {
   const [permissions, setPermissions] = React.useState(false);
   const [completed, setCompleted] = React.useState(false);
   const [stepCount, setStepCount] = React.useState(0);
+  const [user, setUser] = React.useState(null);
 
   
   const route = useRoute();
@@ -135,7 +138,13 @@ export default function Challenge() {
     setStepCount(result.data.steps_count[0].value);
     if(result.data.steps_count[0].value >= params.params.term){
       setCompleted(true);
+
     }
+    await AsyncStorage.getItem("userName").then((res) => {
+      console.log(res);
+      setUser(res);
+      // console.log(user);
+    });
       
   }
 
@@ -145,8 +154,8 @@ export default function Challenge() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{params.params.name}</Text>
-        <Button style={styles.button} onPress={fetchSteps} title="Check Progress" />
-        <Text style={styles.text}>You have to complete : {params.params.term- stepCount} steps</Text>
+        <Button style={styles.button } onPress={fetchSteps} title="Check Progress" />
+        <Text style={styles.steps}>You have to complete : {params.params.term- stepCount} steps</Text>
 
         
         </View>
@@ -163,7 +172,7 @@ export default function Challenge() {
       ) : (
         <>
           {image && <Image style={styles.image} source={{ uri: image }} />}
-          {status && <Text style={styles.text}>{status}</Text>}
+          {status && <Text style={styles.text }>{status}</Text>}
           <Button onPress={takePictureAsync} title="Take a Picture" />
         </>
       )}
@@ -180,10 +189,11 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
   },
   button: {
+    fontSize: 30,
     marginTop: 30,
   },
   title:{
-    fontSize: 60,
+    fontSize: 50,
     marginBottom: 30,
   },
   image: {
@@ -193,6 +203,10 @@ const styles = StyleSheet.create({
   text: {
     margin: 5,
   },
+  steps:{
+    marginTop: 20,
+    fontSize: 26,
+  }
 });
 
 Challenge.navigationOptions = navigationOptions;
