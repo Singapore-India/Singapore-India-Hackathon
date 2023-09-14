@@ -70,11 +70,8 @@ $ yarn lint:fix
 
 
 
-## 🗣 Translations
 
-You can help us with translate the app with our online tool [POEditor](https://poeditor.com/join/project/0MbginCsWp). Any help is appreciate and no coding skills are needed 🤗
 
-PS: please do not use send translations made by Google translate or similar.
 
 <br />
 
